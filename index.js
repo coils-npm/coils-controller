@@ -8,7 +8,7 @@ class CoilsController extends KoaRouter {
 		Object.isObject(Routers) && Object.keys(Routers).forEach((key) => {
 			if (Object.isClass(Routers[key])) {
 			let router = new Routers[key]()
-			if (router instanceof ActionController) {
+			if (router instanceof CoilsController) {
 				application.$koa.use(router.routes()).use(router.allowedMethods());
 			}
 		} else {
@@ -27,7 +27,7 @@ class CoilsController extends KoaRouter {
 			'$koa': { "get": () => { return koa } }
 	})
 		const Routers = require(path.resolve(process.cwd(), 'app/controllers'))
-		ActionController.registerRouter(application, Routers)
+		CoilsController.registerRouter(application, Routers)
 	}
 	
 	constructor () {
