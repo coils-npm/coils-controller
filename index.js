@@ -24,7 +24,7 @@ class CoilsController extends KoaRouter {
 			koa.use(require(path.resolve(middlewaresPath, file)))
 	})
 		Object.defineProperties(application, {
-			'$koa': { "get": () => { return koa } }
+			'_koa': { "get": () => { return koa } }
 	})
 		const Routers = require(path.resolve(process.cwd(), 'app/controllers'))
 		CoilsController.registerRouter(application, Routers)
