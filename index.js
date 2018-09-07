@@ -9,7 +9,7 @@ class CoilsController extends KoaRouter {
 			if (Object.isClass(Routers[key])) {
 			let router = new Routers[key]()
 			if (router instanceof CoilsController) {
-				application.$koa.use(router.routes()).use(router.allowedMethods());
+				application._koa.use(router.routes()).use(router.allowedMethods());
 			}
 		} else {
 			this.registerRouter(application, Routers[key])
