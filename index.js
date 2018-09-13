@@ -22,7 +22,7 @@ class CoilsController extends KoaRouter {
 		let middlewaresPath = path.resolve(process.cwd(), 'app/middlewares')
 		fs.readdirSync(middlewaresPath).sort().forEach(file => {
 			koa.use(require(path.resolve(middlewaresPath, file)))
-	})
+		})
 		Object.defineProperties(application, {
 			'_koa': { "get": () => { return koa } }
 	})
